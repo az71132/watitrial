@@ -3,9 +3,9 @@ const axios = require("axios");
 const app = express();
 app.use(express.json());
 
-const SHOPIFY_API_KEY = process.env.43e5a73a21d0e9b804044451bdc04c1b;
-const SHOPIFY_API_PASSWORD = process.env.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;
-const SHOPIFY_STORE_URL = process.env.f6f2e6-7c.myshopify.com;
+const SHOPIFY_API_KEY = process.env.SHOPIFY_API_KEY;
+const SHOPIFY_API_PASSWORD = process.env.SHOPIFY_API_PASSWORD;
+const SHOPIFY_STORE_URL = process.env.SHOPIFY_STORE_URL;
 
 app.post("/wati-reply", async (req, res) => {
   const message = req.body.message?.text?.body?.toLowerCase();
