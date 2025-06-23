@@ -14,7 +14,7 @@ app.post("/wati-reply", async (req, res) => {
   if (message === "yes") {
     try {
       const response = await axios.get(
-        `https://${SHOPIFY_API_KEY}:${SHOPIFY_API_PASSWORD}@${SHOPIFY_STORE_URL}/admin/api/2023-01/orders.json?financial_status=any`
+        `https://${43e5a73a21d0e9b804044451bdc04c1b}:${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}@${f6f2e6-7c.myshopify.com}/admin/api/2023-01/orders.json?financial_status=any`
       );
 
       const matchedOrder = response.data.orders.find((order) =>
@@ -23,7 +23,7 @@ app.post("/wati-reply", async (req, res) => {
 
       if (matchedOrder) {
         await axios.put(
-          `https://${SHOPIFY_API_KEY}:${SHOPIFY_API_PASSWORD}@${SHOPIFY_STORE_URL}/admin/api/2023-01/orders/${matchedOrder.id}.json`,
+          `https://${43e5a73a21d0e9b804044451bdc04c1b}:${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}@${f6f2e6-7c.myshopify.com}/admin/api/2023-01/orders/${matchedOrder.id}.json`,
           {
             order: {
               id: matchedOrder.id,
