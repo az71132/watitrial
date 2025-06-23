@@ -3,9 +3,9 @@ const axios = require("axios");
 const app = express();
 app.use(express.json());
 
-const SHOPIFY_API_KEY = "your_api_key";
-const SHOPIFY_API_PASSWORD = "your_api_password";
-const SHOPIFY_STORE_URL = "your-store.myshopify.com";
+const SHOPIFY_API_KEY = process.env.43e5a73a21d0e9b804044451bdc04c1b;
+const SHOPIFY_API_PASSWORD = process.env.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;
+const SHOPIFY_STORE_URL = process.env.f6f2e6-7c.myshopify.com;
 
 app.post("/wati-reply", async (req, res) => {
   const message = req.body.message?.text?.body?.toLowerCase();
@@ -14,7 +14,7 @@ app.post("/wati-reply", async (req, res) => {
   if (message === "yes") {
     try {
       const response = await axios.get(
-        `https://${43e5a73a21d0e9b804044451bdc04c1b}:${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}@${f6f2e6-7c.myshopify.com}/admin/api/2023-01/orders.json?financial_status=any`
+        `https://${SHOPIFY_API_KEY}:${SHOPIFY_API_PASSWORD}@${SHOPIFY_STORE_URL}/admin/api/2023-01/orders.json?financial_status=any`
       );
 
       const matchedOrder = response.data.orders.find((order) =>
@@ -23,7 +23,7 @@ app.post("/wati-reply", async (req, res) => {
 
       if (matchedOrder) {
         await axios.put(
-          `https://${43e5a73a21d0e9b804044451bdc04c1b}:${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}@${f6f2e6-7c.myshopify.com}/admin/api/2023-01/orders/${matchedOrder.id}.json`,
+          `https://${SHOPIFY_API_KEY}:${SHOPIFY_API_PASSWORD}@${SHOPIFY_STORE_URL}/admin/api/2023-01/orders/${matchedOrder.id}.json`,
           {
             order: {
               id: matchedOrder.id,
