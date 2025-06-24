@@ -44,4 +44,5 @@ app.post("/wati-reply", async (req, res) => {
   }
 });
 
-module.exports = app;
+const serverless = require("serverless-http");
+module.exports = serverless(app);
