@@ -14,8 +14,9 @@ app.post("/wati-reply", async (req, res) => {
   if (message === "yes") {
     try {
       const response = await axios.get(
-        `https://${SHOPIFY_API_KEY}:${SHOPIFY_API_PASSWORD}@${SHOPIFY_STORE_URL}/admin/api/2023-01/orders.json?financial_status=any`
+        `https://${SHOPIFY_API_KEY}:${SHOPIFY_API_PASSWORD}@${SHOPIFY_STORE_URL}/admin/api/2023-01/orders.json?financial_status=any&limit=10&order=created_at desc`
       );
+
 
       const matchedOrder = response.data.orders.find((order) =>
         order.phone?.includes(phone)
