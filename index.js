@@ -3,6 +3,12 @@ const axios = require("axios");
 const app = express();
 app.use(express.json()); 
 
+app.post("/wati-reply", async (req, res) => {
+  try {
+    console.log("Received webhook payload:", JSON.stringify(req.body, null, 2));
+    const message = req.body.message?.text?.body?.toLowerCase();
+    const phone = req.body.wa_id;
+
 const SHOPIFY_API_KEY = process.env.SHOPIFY_API_KEY;
 const SHOPIFY_API_PASSWORD = process.env.SHOPIFY_API_PASSWORD;
 const SHOPIFY_STORE_URL = process.env.SHOPIFY_STORE_URL;
